@@ -1,21 +1,24 @@
+import { useEffect, useState } from "react";
+import { getPosts } from "./api/posts";
 import { NavBar, Hero, ArchivesPosts } from "./components";
 
-/* import { db } from "./firebase/firebase";
-import { collection, getDocs } from "firebase/firestore"; */
-
 function App() {
-  /* const tryData = async () => {
-    const querySnapshot = await getDocs(collection(db, "posts"));
-    querySnapshot.forEach(doc => {
-      console.log(doc.id, " => ", doc.data());
-    });
-  }; */
+  const [posts, setPosts] = useState([]);
+
+  const fetchPosts = async () => {
+    const posts = await getPosts();
+    setPosts(posts);
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   return (
     <>
       <NavBar />
       <Hero />
-      <ArchivesPosts />
+      <ArchivesPosts posts={posts} />
     </>
   );
 }

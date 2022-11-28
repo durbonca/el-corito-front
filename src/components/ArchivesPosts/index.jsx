@@ -5,14 +5,16 @@ import {
   StyledUlArchivesPosts
 } from "./ArchivesPosts.styles";
 
-export const ArchivesPosts = () => {
+export const ArchivesPosts = ({ posts }) => {
   return (
     <StyledDivContainer>
       <StyledPArchivesTitle>
         <span>Entradas recientes</span>
       </StyledPArchivesTitle>
       <StyledUlArchivesPosts>
-        <ArchivePost />
+        {posts.map(post => (
+          <ArchivePost key={post.id} post={post} />
+        ))}
       </StyledUlArchivesPosts>
     </StyledDivContainer>
   );
