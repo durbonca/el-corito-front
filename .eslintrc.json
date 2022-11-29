@@ -5,7 +5,7 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/recommended"
     ],
     "overrides": [
     ],
@@ -17,5 +17,7 @@
         "react"
     ],
     "rules": { 
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off"
     }
 }

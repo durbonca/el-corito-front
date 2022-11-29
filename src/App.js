@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPosts } from "./api/posts";
-import { NavBar, Hero, ArchivesPosts } from "./components";
+import { NavBar, Hero, ArchivesPosts, Footer } from "./components";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -19,6 +19,7 @@ function App() {
       <NavBar />
       <Hero />
       <ArchivesPosts posts={posts} />
+      <Footer />
     </>
   );
 }

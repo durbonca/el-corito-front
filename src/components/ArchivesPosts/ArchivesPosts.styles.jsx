@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BreakPoints } from "../../utils/constants";
 
 export const StyledDivContainer = styled.div`
   display: block;
@@ -49,6 +50,13 @@ export const StyledLiArchivePost = styled.li`
   align-content: stretch;
   justify-content: space-between;
   gap: 40px;
+
+  @media (max-width: ${BreakPoints.mobile}) {
+    flex-direction: column;
+  }
+  @media (min-width: ${BreakPoints.tablet}) {
+    gap: 30px;
+  }
 `;
 
 export const StyledDivEntryPreview = styled.div`
@@ -87,4 +95,18 @@ export const StyledPEntry = styled.p`
 export const StyledDivThumbnailContainer = styled.div`
   flex: 0 1 150px;
   position: relative;
+
+  @media (max-width: ${BreakPoints.mobile}) {
+    flex: 1;
+    margin: 0 auto;
+  }
+`;
+
+export const StyledImgThumbnail = styled.img`
+  height: 100%;
+  max-width: 100%;
+
+  @media (max-width: ${BreakPoints.mobile}) {
+    display: block;
+  }
 `;
