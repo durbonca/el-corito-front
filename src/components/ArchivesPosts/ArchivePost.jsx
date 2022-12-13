@@ -6,21 +6,22 @@ import {
   StyledSpanCategory,
   StyledH2Title,
   StyledPEntry,
-  StyledDivThumbnailContainer
+  StyledDivThumbnailContainer,
+  StyledImgThumbnail
 } from "./ArchivesPosts.styles.jsx";
 
 export const ArchivePost = ({ post }) => {
-  const { title, file, body, date_creation } = post;
+  const { title, file, body, date_creation, category } = post;
   return (
     <StyledLiArchivePost>
       <StyledDivThumbnailContainer>
         <a href="">
-          <img src={file.src} alt={file.title} />
+          <StyledImgThumbnail src={file.src} alt={file.title} />
         </a>
       </StyledDivThumbnailContainer>
       <StyledDivEntryPreview>
         <StyledSpanTagLine>{getPostDate(date_creation)}</StyledSpanTagLine>
-        <StyledSpanCategory>El Corito Histórico</StyledSpanCategory>
+        <StyledSpanCategory>{category.title}</StyledSpanCategory>
         <StyledH2Title>{title}</StyledH2Title>
         <StyledPEntry>{breakText(wysiwygText(body), 50)}</StyledPEntry>
       </StyledDivEntryPreview>

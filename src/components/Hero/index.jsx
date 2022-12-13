@@ -1,3 +1,4 @@
+import { breakText, wysiwygText, getPostDate } from "../../utils/functions";
 import {
   StyledDivContainer,
   StyledDivHero,
@@ -8,20 +9,20 @@ import {
   StyledATitle
 } from "./Hero.styles";
 
-export const Hero = () => {
+export const Hero = ({ title, date_creation, body }) => {
   return (
     <StyledDivContainer>
       <StyledDivHero>
         <StyledDivWelcome>
           <StyledDivColumn>
-            <StyledPTag>ÚLTIMO EPISODIO // 7 de septiembre de 2022</StyledPTag>
+            <StyledPTag>
+              ÚLTIMO EPISODIO // {date_creation && getPostDate(date_creation)}
+            </StyledPTag>
             <StyledH2Title>
-              <StyledATitle>JOSÉ DOMINGO DÍAZ</StyledATitle>
+              <StyledATitle>{title}</StyledATitle>
             </StyledH2Title>
             <p>
-              En este Corito Histórico, los muchachos Javier Lara (en Twitter
-              @vzla_apesta) y Doriann Márquez (en Twitter @Hostioso0294) traen a
-              un poco conocido villano de la Guerra de Independencia, quién por
+              {body && breakText(wysiwygText(body), 50)}
               […]
             </p>
           </StyledDivColumn>

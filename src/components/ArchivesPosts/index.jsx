@@ -1,4 +1,5 @@
 import { ArchivePost } from "./ArchivePost";
+import { Pagination } from "../";
 import {
   StyledDivContainer,
   StyledPArchivesTitle,
@@ -16,6 +17,7 @@ export const ArchivesPosts = ({ posts }) => {
           <ArchivePost key={post.id} post={post} />
         ))}
       </StyledUlArchivesPosts>
+      <Pagination />
     </StyledDivContainer>
   );
 };

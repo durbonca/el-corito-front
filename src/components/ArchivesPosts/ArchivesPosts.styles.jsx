@@ -95,6 +95,7 @@ export const StyledPEntry = styled.p`
 export const StyledDivThumbnailContainer = styled.div`
   flex: 0 1 150px;
   position: relative;
+  height: 150px;
 
   @media (max-width: ${BreakPoints.mobile}) {
     flex: 1;
@@ -105,6 +106,7 @@ export const StyledDivThumbnailContainer = styled.div`
 export const StyledImgThumbnail = styled.img`
   height: 100%;
   max-width: 100%;
+  object-fit: cover;
 
   @media (max-width: ${BreakPoints.mobile}) {
     display: block;
