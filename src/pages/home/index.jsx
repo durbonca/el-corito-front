@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPosts, getLastPosts, getPostCount } from "../../api/posts";
 import { Hero, ArchivesPosts, Loading } from "../../components";
+import { StyledDivContainer } from "./home.styled";
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -34,13 +35,15 @@ export const Home = () => {
           <Loading />
         </div>
       ) : (
-        <ArchivesPosts
-          page={page}
-          posts={posts}
-          totalPages={totalPages}
-          setPage={setPage}
-          setPosts={setPosts}
-        />
+        <StyledDivContainer>
+          <ArchivesPosts
+            page={page}
+            posts={posts}
+            totalPages={totalPages}
+            setPage={setPage}
+            setPosts={setPosts}
+          />
+        </StyledDivContainer>
       )}
     </>
   );
