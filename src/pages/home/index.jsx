@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPosts, getLastPosts, getPostCount } from "../../api/posts";
-import { Hero, ArchivesPosts } from "../../components";
+import { Hero, ArchivesPosts, Loading } from "../../components";
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -29,12 +29,19 @@ export const Home = () => {
   return (
     <>
       <Hero {...lastPost} />
-      <ArchivesPosts
-        page={page}
-        posts={posts}
-        totalPages={totalPages}
-        setPage={setPage}
-      />
+      {posts.length === 0 ? (
+        <div className="flex justify-center p-4">
+          <Loading />
+        </div>
+      ) : (
+        <ArchivesPosts
+          page={page}
+          posts={posts}
+          totalPages={totalPages}
+          setPage={setPage}
+          setPosts={setPosts}
+        />
+      )}
     </>
   );
 };

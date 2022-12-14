@@ -1,9 +1,10 @@
 import { PaginationContainer, NavLinks, PageNav } from "./pagination.styles";
 
-export const Pagination = ({ page, totalPages, setPage }) => {
+export const Pagination = ({ page, totalPages, setPage, setPosts }) => {
   const handlePageChange = args => {
     window.scrollTo(0, 0);
     setPage(args);
+    setPosts([]);
   };
 
   return (
