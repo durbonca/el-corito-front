@@ -42,7 +42,7 @@ export const getPosts = async page => {
   const q = query(collection(db, "posts"), orderBy("date_creation", "desc"));
 
   const querySnapshot = await getDocs(q);
-  const lastVisible = querySnapshot.docs[page * 10];
+  const lastVisible = querySnapshot.docs[(page - 1) * 10];
 
   const next = query(
     collection(db, "posts"),

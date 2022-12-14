@@ -1,17 +1,28 @@
 import { PaginationContainer, NavLinks, PageNav } from "./pagination.styles";
 
-export const Pagination = ({ page, totalPages }) => {
-  console.log("page", page);
-
+export const Pagination = ({ page, totalPages, setPage }) => {
   return (
     <PaginationContainer>
       <NavLinks>
-        {page !== 0 && <PageNav>Anterior</PageNav>}
-        <PageNav>1</PageNav>
-        <PageNav>2</PageNav>
-        {" ... "}
-        <PageNav>{totalPages}</PageNav>
-        <PageNav>Siguiente</PageNav>
+        {page !== 1 && (
+          <>
+            <PageNav onClick={() => setPage(page - 1)}>Anterior</PageNav>
+            <PageNav onClick={() => setPage(page - 1)}>{page - 1}</PageNav>
+          </>
+        )}
+        <PageNav active>{page}</PageNav>
+        {page < totalPages - 1 && (
+          <>
+            <PageNav onClick={() => setPage(page + 1)}>{page + 1}</PageNav>
+            {" ... "}
+          </>
+        )}
+        {page !== totalPages && (
+          <>
+            <PageNav onClick={() => setPage(totalPages)}>{totalPages}</PageNav>
+            <PageNav onClick={() => setPage(page + 1)}>Siguiente</PageNav>
+          </>
+        )}
       </NavLinks>
     </PaginationContainer>
   );

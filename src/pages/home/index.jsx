@@ -5,7 +5,7 @@ import { Hero, ArchivesPosts } from "../../components";
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [lastPost, setLastPost] = useState({});
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   const fetchPosts = async () => {
@@ -14,14 +14,27 @@ export const Home = () => {
     setTotalPages((await getPostCount()) / 10);
   };
 
+  const fetchPaginatedPosts = async () => {
+    setPosts(await getPosts(page));
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    fetchPaginatedPosts();
+  }, [page]);
+
   return (
     <>
       <Hero {...lastPost} />
-      <ArchivesPosts page={page} posts={posts} totalPages={totalPages} />
+      <ArchivesPosts
+        page={page}
+        posts={posts}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
     </>
   );
 };
