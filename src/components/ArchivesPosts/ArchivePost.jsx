@@ -21,7 +21,7 @@ export const ArchivePost = ({ post }) => {
       </StyledDivThumbnailContainer>
       <StyledDivEntryPreview>
         <StyledSpanTagLine>{getPostDate(date_creation)}</StyledSpanTagLine>
-        <StyledSpanCategory>{category.title}</StyledSpanCategory>
+        <StyledSpanCategory>{category?.title}</StyledSpanCategory>
         <StyledH2Title>{title}</StyledH2Title>
         <StyledPEntry>{breakText(wysiwygText(body), 50)}</StyledPEntry>
       </StyledDivEntryPreview>

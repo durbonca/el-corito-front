@@ -6,7 +6,7 @@ import {
   query,
   /* where, */
   orderBy,
-  startAfter
+  startAt
 } from "firebase/firestore";
 
 export const getCategories = async () => {
@@ -29,24 +29,25 @@ export const getLastPosts = async () => {
   return data;
 };
 
-export const getPosts = async () => {
-  const start = 1;
+export const getPostCount = async () => {
+  const q = query(collection(db, "posts"));
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.size;
+};
+
+export const getPosts = async page => {
   const postsList = [];
   const categories = await getCategories();
 
-  const q = query(
-    collection(db, "posts"),
-    orderBy("date_creation", "desc"),
-    limit(10)
-  );
+  const q = query(collection(db, "posts"), orderBy("date_creation", "desc"));
 
   const querySnapshot = await getDocs(q);
-  const lastVisible = querySnapshot.docs[start - 1];
+  const lastVisible = querySnapshot.docs[page * 10];
 
   const next = query(
     collection(db, "posts"),
     orderBy("date_creation", "desc"),
-    startAfter(lastVisible),
+    startAt(lastVisible),
     limit(10)
   );
 

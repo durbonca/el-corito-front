@@ -6,7 +6,7 @@ import {
   StyledUlArchivesPosts
 } from "./ArchivesPosts.styles";
 
-export const ArchivesPosts = ({ posts }) => {
+export const ArchivesPosts = ({ posts, page, totalPages }) => {
   return (
     <StyledDivContainer>
       <StyledPArchivesTitle>
@@ -17,7 +17,7 @@ export const ArchivesPosts = ({ posts }) => {
           <ArchivePost key={post.id} post={post} />
         ))}
       </StyledUlArchivesPosts>
-      <Pagination />
+      <Pagination page={page} totalPages={totalPages} />
     </StyledDivContainer>
   );
 };
