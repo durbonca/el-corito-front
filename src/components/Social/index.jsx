@@ -8,9 +8,9 @@ import instagram from "../../assets/icons/instagram.svg";
 
 export const Social = () => {
   return (
-    <div className="m-2">
+    <div className="my-2 mx-auto max-w-5xl">
       <p className="font-bold text-xl">Nuestras redes sociales</p>
-      <div className="flex items-center">
+      <div className="flex mt-2 gap-2 items-center flex-wrap justify-around">
         <Logo
           href="https://www.youtube.com/playlist?list=PL7PXhJ4RTsJkEkP_7PELkueVASdKOs7Er"
           logo={youtube}
