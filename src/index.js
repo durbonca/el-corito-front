@@ -7,10 +7,10 @@ import { NavBar, Footer } from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { router } from "./router";
 import {
-  createBrowserRouter,
-  RouterProvider,
+  RouterProvider
+  /* createBrowserRouter,
   Route,
-  Link
+  Link */
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
