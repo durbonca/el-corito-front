@@ -85,6 +85,11 @@ export const StyledH2Title = styled.h2`
   line-height: 1.5;
   font-weight: 600;
   color: #181818;
+
+  &:hover {
+    color: #333;
+    text-decoration: underline;
+  }
 `;
 
 export const StyledPEntry = styled.p`

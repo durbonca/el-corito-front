@@ -30,13 +30,6 @@ export const router = createBrowserRouter([
         <NavBar />
         <Post />
       </>
-    ),
-    loader: async ({ params }) => {
-      const { title } = params;
-      const postData = await getPostByTitle(title);
-      return {
-        postData
-      };
-    }
+    )
   }
 ]);

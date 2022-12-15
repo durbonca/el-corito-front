@@ -16,9 +16,9 @@ export const ArchivePost = ({ post }) => {
   return (
     <StyledLiArchivePost>
       <StyledDivThumbnailContainer>
-        <a href="">
+        <Link to={`/episodio/${title}`}>
           <StyledImgThumbnail src={file.src} alt={file.title} />
-        </a>
+        </Link>
       </StyledDivThumbnailContainer>
       <StyledDivEntryPreview>
         <StyledSpanTagLine>{getPostDate(date_creation)}</StyledSpanTagLine>

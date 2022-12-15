@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   StyledFigureVideo,
   EntryContent,
@@ -13,10 +14,11 @@ import { getPostByTitle } from "../../api/posts";
 import { extractYoutubeVideoId, getPostDate } from "../../utils/functions";
 
 export const Post = () => {
+  const { title } = useParams();
   const [post, setPost] = useState({});
   const [urlYoutube, setUrlYoutube] = useState("");
   const handleQuery = async () => {
-    const response = await getPostByTitle("La fundación de Mérida");
+    const response = await getPostByTitle(title);
     setPost(response);
     setUrlYoutube(
       `https://youtube.com/embed/${extractYoutubeVideoId(
