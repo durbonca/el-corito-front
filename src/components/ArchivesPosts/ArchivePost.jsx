@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { breakText, wysiwygText, getPostDate } from "../../utils/functions";
 import {
   StyledLiArchivePost,
@@ -22,7 +23,9 @@ export const ArchivePost = ({ post }) => {
       <StyledDivEntryPreview>
         <StyledSpanTagLine>{getPostDate(date_creation)}</StyledSpanTagLine>
         <StyledSpanCategory>{category?.title}</StyledSpanCategory>
-        <StyledH2Title>{title}</StyledH2Title>
+        <Link to={`/episodio/${title}`}>
+          <StyledH2Title>{title}</StyledH2Title>
+        </Link>
         <StyledPEntry>{breakText(wysiwygText(body), 50)}</StyledPEntry>
       </StyledDivEntryPreview>
     </StyledLiArchivePost>

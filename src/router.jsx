@@ -1,18 +1,42 @@
 import { Home, Contact, Post } from "./pages";
+import { getPostByTitle } from "./api/posts";
 /* import { createRoot } from "react-dom/client"; */
 import { createBrowserRouter /* Route, Link */ } from "react-router-dom";
+import { NavBar } from "./components";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: (
+      <>
+        <NavBar />
+        <Home />
+      </>
+    )
   },
   {
     path: "/contactanos",
-    element: <Contact />
+    element: (
+      <>
+        <NavBar />
+        <Contact />
+      </>
+    )
   },
   {
     path: "/episodio/:title",
-    element: <Post />
+    element: (
+      <>
+        <NavBar />
+        <Post />
+      </>
+    ),
+    loader: async ({ params }) => {
+      const { title } = params;
+      const postData = await getPostByTitle(title);
+      return {
+        postData
+      };
+    }
   }
 ]);

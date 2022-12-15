@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/logo.png";
 
 const navigation = [
@@ -35,7 +36,7 @@ export const NavBar = () => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/">
+                  <Link to="/">
                     <img
                       className="block h-14 w-auto lg:hidden"
                       src={logoImg}
@@ -46,7 +47,7 @@ export const NavBar = () => {
                       src={logoImg}
                       alt="El Corito Historico"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">

@@ -14,3 +14,11 @@ export const getPostDate = date => {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return postDate.toLocaleDateString("es-ES", options);
 };
+
+export const extractYoutubeVideoId = url => {
+  const videoId = url.split("v=")[1];
+  const ampersandPosition = videoId.indexOf("&");
+  return ampersandPosition === -1
+    ? videoId
+    : videoId.substring(0, ampersandPosition);
+};

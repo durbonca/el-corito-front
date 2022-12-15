@@ -9,6 +9,12 @@ import {
   startAt
 } from "firebase/firestore";
 
+export const getPostByTitle = async title => {
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  const post = querySnapshot.docs.find(doc => doc.data().title === title);
+  return post.data();
+};
+
 export const getCategories = async () => {
   const categoriesList = [];
   const querySnapshot = await getDocs(collection(db, "categories"));
