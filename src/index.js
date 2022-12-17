@@ -4,12 +4,7 @@ import "./index.css";
 import { Footer } from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { router } from "./router";
-import {
-  RouterProvider
-  /* createBrowserRouter,
-  Route,
-  Link */
-} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

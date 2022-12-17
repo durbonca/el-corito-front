@@ -1,6 +1,5 @@
 import { Home, Contact, Post } from "./pages";
-/* import { createRoot } from "react-dom/client"; */
-import { createBrowserRouter /* Route, Link */ } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { NavBar, ErrorPage } from "./components";
 
 export const router = createBrowserRouter([
