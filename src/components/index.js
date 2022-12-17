@@ -5,3 +5,4 @@ export { Footer } from "./Footer";
 export { Pagination } from "./Pagination";
 export { Loading } from "./Loading";
 export { Social } from "./Social";
+export { ErrorPage } from "./errorPage";

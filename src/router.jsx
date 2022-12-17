@@ -1,7 +1,7 @@
 import { Home, Contact, Post } from "./pages";
 /* import { createRoot } from "react-dom/client"; */
 import { createBrowserRouter /* Route, Link */ } from "react-router-dom";
-import { NavBar } from "./components";
+import { NavBar, ErrorPage } from "./components";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +11,8 @@ export const router = createBrowserRouter([
         <NavBar />
         <Home />
       </>
-    )
+    ),
+    errorElement: <ErrorPage />
   },
   {
     path: "/contactanos",
@@ -20,7 +21,8 @@ export const router = createBrowserRouter([
         <NavBar />
         <Contact />
       </>
-    )
+    ),
+    errorElement: <ErrorPage />
   },
   {
     path: "/episodio/:title",
@@ -29,6 +31,7 @@ export const router = createBrowserRouter([
         <NavBar />
         <Post />
       </>
-    )
+    ),
+    errorElement: <ErrorPage />
   }
 ]);
