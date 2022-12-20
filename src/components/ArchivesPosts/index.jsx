@@ -1,5 +1,5 @@
 import { ArchivePost } from "./ArchivePost";
-import { Pagination } from "../";
+/* import { Pagination } from "../"; */
 import {
   StyledDivContainer,
   StyledPArchivesTitle,
@@ -7,11 +7,11 @@ import {
 } from "./ArchivesPosts.styles";
 
 export const ArchivesPosts = ({
-  posts,
-  page,
+  posts
+  /* page,
   totalPages,
   setPage,
-  setPosts
+  setPosts */
 }) => {
   return (
     <StyledDivContainer>
@@ -23,12 +23,12 @@ export const ArchivesPosts = ({
           <ArchivePost key={post.id} post={post} />
         ))}
       </StyledUlArchivesPosts>
-      <Pagination
+      {/* <Pagination
         page={page}
         totalPages={totalPages}
         setPage={setPage}
         setPosts={setPosts}
-      />
+      /> */}
     </StyledDivContainer>
   );
 };

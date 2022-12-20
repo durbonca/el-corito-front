@@ -1,12 +1,5 @@
 import { db } from "../firebase/firebase";
-import {
-  collection,
-  getDocs,
-  limit,
-  query,
-  orderBy,
-  startAt
-} from "firebase/firestore";
+import { collection, getDocs, limit, query, orderBy } from "firebase/firestore";
 
 export const getPostByTitle = async title => {
   try {
@@ -56,31 +49,13 @@ export const getPostCount = async () => {
   }
 };
 
-export const getPosts = async page => {
+export const getAllPosts = async () => {
   const postsList = [];
   try {
-    const categories = await getCategories();
-
     const q = query(collection(db, "posts"), orderBy("date_creation", "desc"));
-
     const querySnapshot = await getDocs(q);
-    const lastVisible = querySnapshot.docs[(page - 1) * 10];
-
-    const next = query(
-      collection(db, "posts"),
-      orderBy("date_creation", "desc"),
-      startAt(lastVisible),
-      limit(10)
-    );
-
-    const nextQuerySnapshot = await getDocs(next);
-    nextQuerySnapshot.forEach(doc => {
-      const data = doc.data();
-      const category = categories.find(
-        category => category.id === data.categories
-      );
-      data.category = category;
-      postsList.push({ ...data, id: doc.id });
+    querySnapshot.forEach(doc => {
+      postsList.push({ ...doc.data(), id: doc.id });
     });
     return postsList;
   } catch (error) {
